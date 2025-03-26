@@ -26,4 +26,4 @@ jobs:
             
             Consider changing the base branch from `main` to `test`:
             
-            Click "Edit" at the top left, then change the "base" dropdown.
+            Click "Edit" at the top right, then change the "base" dropdown.
