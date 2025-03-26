@@ -18,4 +18,12 @@ jobs:
         uses: thollander/actions-comment-pull-request@v3.0.1
         with:
           message: |
-            Caution! The base branch is set to "main". Only "test" should be merged into "main".
+            > [!CAUTION]
+            > The base branch for this PR is set to `main`.
+            
+            ### :warning: Only `test` should be merged into `main`!
+            <br>
+            
+            Consider changing the base branch from `main` to `test`:
+            
+            Click "Edit" at the top left, then change the "base" dropdown.
