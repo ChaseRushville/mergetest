@@ -1,0 +1,29 @@
+name: Warn on PRs for main branch
+
+# run when a PR is opened to merge into "main"
+on:
+  pull_request_target:
+    branches:
+      - main
+
+# only comment on PRs where the branch to merge is not "test"
+jobs:
+  comment_on_pr:
+    if: github.head_ref != 'test'
+    runs-on: ubuntu-latest
+    permissions: 
+     pull-requests: write 
+    steps:
+      - name: Comment on PR
+        uses: thollander/actions-comment-pull-request@v3.0.1
+        with:
+          message: |
+            > [!CAUTION]
+            > The base branch for this PR is set to `main`.
+            
+            ### :warning: Only `test` should be merged into `main`!
+            <br>
+            
+            Consider changing the base branch from `main` to `test`:
+            
+            Click "Edit" at the top right, then change the "base" dropdown.
