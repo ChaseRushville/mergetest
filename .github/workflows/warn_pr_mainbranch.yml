@@ -1,12 +1,14 @@
+name: Warn on PRs for main branch
+
 # run when a PR is opened to merge into "main"
 on:
   pull_request_target:
     branches:
       - main
 
+# only comment on PRs where the branch to merge is not "test"
 jobs:
   comment_on_pr:
-    # only comment on PRs where the branch to merge is not "test"
     if: github.head_ref != 'test'
     runs-on: ubuntu-latest
     steps:
@@ -14,4 +16,4 @@ jobs:
         uses: thollander/actions-comment-pull-request@v3
         with:
           message: |
-            Caution! Base branch is set to "main". Only "test" should be merged into "main".
+            Caution! The base branch is set to "main". Only "test" should be merged into "main".
